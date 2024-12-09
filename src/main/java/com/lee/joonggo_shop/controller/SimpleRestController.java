@@ -8,6 +8,6 @@ public class SimpleRestController {
 	
 	@RequestMapping("/")
 	public String hello() {
-		return "Hello";
+		return "Hello2";
 	}
 }
