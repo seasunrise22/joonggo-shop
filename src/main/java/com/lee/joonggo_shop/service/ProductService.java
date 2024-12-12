@@ -1,5 +1,6 @@
 package com.lee.joonggo_shop.service;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,21 +12,23 @@ import com.lee.joonggo_shop.repository.ProductRepository;
 public class ProductService {
 	
 	private ProductRepository productRepository;
+	private ModelMapper modelMapper;
 
 	@Autowired
-	public ProductService(ProductRepository productRepository) {
+	public ProductService(ProductRepository productRepository, ModelMapper modelMapper) {
 		this.productRepository = productRepository;
+		this.modelMapper = modelMapper;
 	}
 	
 	public ProductDto add(ProductDto productDto) {
 		// 1. ProductDto를 Product로 변환하는 코드
-		Product product = ??;
+		Product product = modelMapper.map(productDto, Product.class);
 		
 		// 2. 리포지토리를 호출하는 코드
 		Product savedProduct = productRepository.add(product);	
 		
 		// 3. Product를 ProductDto로 변환하는 코드
-		ProductDto savedProductDto = ??;
+		ProductDto savedProductDto = modelMapper.map(savedProduct, ProductDto.class);
 		
 		// 4. DTO를 반환하는 코드
 		return savedProductDto;			

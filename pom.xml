@@ -55,6 +55,13 @@
     		<version>1.2</version>
 		</dependency>
 		
+		<!-- 두 클래스 사이의 변환 기능을 제공하는 ModelMapper 라이브러리 -->
+		<dependency>
+    		<groupId>org.modelmapper</groupId>
+    		<artifactId>modelmapper</artifactId>
+    		<version>3.2.2</version>
+		</dependency>
+		
 	</dependencies>
 
 	<build>

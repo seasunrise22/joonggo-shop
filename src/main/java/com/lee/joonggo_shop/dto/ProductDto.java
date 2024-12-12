@@ -20,5 +20,5 @@ public class ProductDto {
 	
 	public Integer getPrice() {
 		return price;
-	}	
+	}
 }
