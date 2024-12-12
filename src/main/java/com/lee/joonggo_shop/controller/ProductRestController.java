@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.lee.joonggo_shop.entity.Product;
+import com.lee.joonggo_shop.dto.ProductDto;
 import com.lee.joonggo_shop.service.ProductService;
 
 @RestController
@@ -19,9 +19,7 @@ public class ProductRestController {
 	}
 
 	@PostMapping("/products")
-	public Product createProduct(@RequestBody Product product) {
-		// Product를 생성하고 리스트에 넣는 작업이 필요함.
-		
-		return productService.add(product);
+	public ProductDto createProduct(@RequestBody ProductDto productDto) {
+		return productService.add(productDto);
 	}
 }
