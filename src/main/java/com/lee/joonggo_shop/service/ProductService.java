@@ -1,5 +1,8 @@
 package com.lee.joonggo_shop.service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -32,5 +35,15 @@ public class ProductService {
 		
 		// 4. DTO를 반환하는 코드
 		return savedProductDto;			
+	}
+	
+	public List<ProductDto> findAll() {
+		List<Product> products = productRepository.findAll();
+		
+		List<ProductDto> productDtos = products.stream()
+				.map(product -> modelMapper.map(product, ProductDto.class))
+				.collect(Collectors.toList());
+		
+		return productDtos; 
 	}
 }
