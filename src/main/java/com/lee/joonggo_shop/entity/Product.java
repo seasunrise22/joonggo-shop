@@ -9,7 +9,23 @@ public class Product {
 	private String description; // 중고 상품 설명
 	private Integer price; // 중고 상품 가격
 	
+	public Long getId() {
+		return id;
+	}
+
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public Integer getPrice() {
+		return price;
 	}
 }

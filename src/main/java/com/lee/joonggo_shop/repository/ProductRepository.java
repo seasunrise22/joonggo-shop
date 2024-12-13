@@ -20,4 +20,8 @@ public class ProductRepository {
 		products.add(product);
 		return product;
 	}	
+	
+	public List<Product> findAll() {
+		return products;
+	}
 }
