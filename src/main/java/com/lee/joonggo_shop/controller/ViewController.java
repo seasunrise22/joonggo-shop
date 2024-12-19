@@ -35,4 +35,9 @@ public class ViewController {
 //		model.addAttribute("productList", productService.findAll());
 //		return "index";
 //	}
+	
+	@GetMapping("/creates")
+	public String create() {
+		return "create";
+	}
 }

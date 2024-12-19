@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="EUC-KR">
-<title>Lee's 중고샵</title>
+<title>중고물품 등록</title>
 <style>
 table {
 	width: 50%;
@@ -54,12 +54,13 @@ button {
 </style>
 </head>
 <body>
-	<h1>중고물품 목록</h1>
+	<h1>중고상품 등록</h1>
+
 	<table border="1">
 		<tr>
 			<td colspan="4" style="text-align: right;">
 				<!-- HTTP GET 요청을 통해 /creates 경로로 이동하게 됩니다. 이는 사용자가 URL을 직접 입력하여 이동하는 것과 동일합니다. -->
-				<button onclick="location.href='/creates'">등록하기</button>
+				<button onclick="location.href='/'">돌아가기</button>
 			</td>
 		</tr>
 		<tr>
