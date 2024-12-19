@@ -21,4 +21,9 @@ public class ProductDto {
 	public Integer getPrice() {
 		return price;
 	}
+
+	@Override
+	public String toString() {
+		return "ProductDto [id=" + id + ", name=" + name + ", description=" + description + ", price=" + price + "]";
+	}			
 }

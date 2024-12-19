@@ -47,37 +47,85 @@ th:nth-child(3) { /* 가격 */
 th:nth-child(4) { /* 설명 */
 	width: 50%
 }
+
 button {
 	font-size: 18px;
-	padding: 10px 20px;	
+	padding: 10px 20px;
+}
+
+.button-container {
+	display: flex;
+	justify-content: space-between;
+}
+
+input, textarea {
+	width: 100%;
+	box-sizing: border-box;
 }
 </style>
 </head>
 <body>
 	<h1>중고상품 등록</h1>
-
-	<table border="1">
-		<tr>
-			<td colspan="4" style="text-align: right;">
-				<!-- HTTP GET 요청을 통해 /creates 경로로 이동하게 됩니다. 이는 사용자가 URL을 직접 입력하여 이동하는 것과 동일합니다. -->
-				<button onclick="location.href='/'">돌아가기</button>
-			</td>
-		</tr>
-		<tr>
-			<th>번호</th>
-			<th>물품명</th>
-			<th>가격</th>
-			<th>설명</th>
-		</tr>
-		<c:forEach var="product" items="${productList}">
+	<form id="productForm">
+		<table border="1">
 			<tr>
-				<td>${product.id}</td>
-				<td>${product.name}</td>
-				<td><fmt:formatNumber value="${product.price}" type="number"
-						pattern="#,###"></fmt:formatNumber>원</td>
-				<td>${product.description}</td>
+				<td colspan="4">
+					<div class="button-container">
+						<!-- HTTP GET 요청을 통해 /creates 경로로 이동하게 됩니다. 이는 사용자가 URL을 직접 입력하여 이동하는 것과 동일합니다. -->
+						<button type="button" style="text-align: left;"
+							onclick="location.href='/'">돌아가기</button>
+						<button type="button" onclick="submitForm()" style="text-align: right">제출</button>
+					</div>
+				</td>
 			</tr>
-		</c:forEach>
-	</table>
+			<tr>
+				<td>물품명</td>
+				<td><input type="text" name="name" required></td>
+				<td>가격</td>
+				<td><input type="number" name="price" required></td>
+			</tr>
+			<tr>
+				<td>설명</td>
+				<td colspan="3"><textarea name="description" rows="10"
+						required></textarea></td>
+			</tr>
+		</table>
+	</form>
+
+	<script>
+		function submitForm() {
+			const form = document.getElementById('productForm');
+			const formData = new FormData(form);
+			
+			const jsonData = {};
+			formData.forEach((value, key) => {
+				jsonData[key] = value;
+			});
+			
+			console.log(JSON.stringify(jsonData));
+			
+			fetch('/createProducts', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify(jsonData)
+			})
+			.then(response => {
+				if(response.ok) {
+					return response.json();
+				} else {
+					throw new Error('서버 응답 200 아님!');
+				}
+			})
+			.then(data => {
+				console.log('Fetch 성공!: ', data);
+				window.location.href = '/';
+			})
+			.catch((error) => {
+				console.error('Fetch 에러: ', error);
+			});
+		}
+	</script>
 </body>
 </html>
