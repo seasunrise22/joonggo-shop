@@ -46,4 +46,9 @@ public class ProductService {
 		
 		return productDtos; 
 	}
+
+//	public ProductDto findById(Long id) {
+//		Product product = 
+//		return null;
+//	}
 }

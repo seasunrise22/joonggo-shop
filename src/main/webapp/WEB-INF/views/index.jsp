@@ -71,7 +71,7 @@ button {
 		<c:forEach var="product" items="${productList}">
 			<tr>
 				<td>${product.id}</td>
-				<td>${product.name}</td>
+				<td><a href="/reads/${product.id}">${product.name}</a></td>
 				<td><fmt:formatNumber value="${product.price}" type="number"
 						pattern="#,###"></fmt:formatNumber>¿ø</td>
 				<td>${product.description}</td>

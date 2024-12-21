@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="EUC-KR">
-<title>등록 페이지</title>
+<title>열람 페이지</title>
 <style>
 table {
 	width: 50%;
@@ -65,7 +65,7 @@ input, textarea {
 </style>
 </head>
 <body>
-	<h1>중고물품 등록</h1>
+	<h1>중고물품 열람</h1>
 	<form id="productForm">
 		<table border="1">
 			<tr>
