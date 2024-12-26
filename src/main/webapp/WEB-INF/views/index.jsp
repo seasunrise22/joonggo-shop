@@ -19,7 +19,7 @@ th, td {
 }
 
 td:nth-child(2) {
-	text-align: left;
+	text-align: center;
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;

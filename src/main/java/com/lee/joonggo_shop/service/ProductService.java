@@ -47,8 +47,9 @@ public class ProductService {
 		return productDtos; 
 	}
 
-//	public ProductDto findById(Long id) {
-//		Product product = 
-//		return null;
-//	}
+	public ProductDto findById(Long id) {
+		Product product = productRepository.findById(id);
+		ProductDto productDto = modelMapper.map(product, ProductDto.class);
+		return productDto;
+	}
 }

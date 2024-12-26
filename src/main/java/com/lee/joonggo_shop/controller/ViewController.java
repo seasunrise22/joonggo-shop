@@ -44,8 +44,8 @@ public class ViewController {
 	
 	@GetMapping("/reads/{id}")
 	public String read(@PathVariable Long id, Model model) {
-//		ProductDto product = productService.findById(id);
-//		model.addAttribute("product", product);
+		ProductDto product = productService.findById(id);
+		model.addAttribute("product", product);
 		return "read";
 	}
 }
